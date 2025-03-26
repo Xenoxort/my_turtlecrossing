@@ -16,7 +16,7 @@ class Player(Turtle):
         self.forward(20)
 
     def starting_position(self):
-        self.goto(0, -(self.height / 2 - 30))
+        self.goto(0, -(self.height / 2 - 20))
         self.setheading(90)
 
 
