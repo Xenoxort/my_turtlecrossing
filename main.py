@@ -1,4 +1,5 @@
-from turtle import Turtle, Screen
+from player import Player
+from turtle import Screen
 
 screen = Screen()
 
@@ -9,30 +10,23 @@ width = 600
 screen.setup(height=height, width=width)
 screen.title("Turtle Crossing Game")
 
+#Setup player
 screen.tracer(0)
-#My Turtle
-tim = Turtle(shape="turtle")
-tim.color("black")
-tim.penup()
-tim.goto(0, -(height/2 - 30))
-tim.setheading(90)
+my_player = Player(height)
 
 screen.update()
 
 #Turtle Movement
 screen.listen()
 
-def up():
-    tim.forward(20)
+screen.onkey(fun=my_player.up, key = "Up")
 
-screen.onkey(fun=up, key = "Up")
-
-
+# The Game
 game_on = True
 while game_on:
-
-    if tim.ycor() > 230:
-        tim.goto(0, -(height / 2 - 30))
+    # Completing the current level
+    if my_player.ycor() > (height / 2 - 20):
+        my_player.starting_position()
 
     screen.update()
 
