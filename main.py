@@ -36,7 +36,7 @@ car_list = []
 game_on = True
 while game_on:
     # Creating and moving cars
-    if random.randint(1, 30) == 30:
+    if random.randint(0, int(my_cars.frequency)) == 0:
         tim = my_cars.create()
         car_list.append(tim)
     for car in car_list:
@@ -50,9 +50,15 @@ while game_on:
         # Increase the speed of the cars
         my_cars.increase_speed() #as the cars get faster the frequency gets lower because the rate of spawning the cars is constant.
 
-
         # Increase level
         my_level.increase_level()
+
+    # Game Over when hitting a car
+    for car in car_list:
+        if abs(car.xcor() - my_player.xcor()) < 28 and abs(car.ycor() - my_player.ycor()) < 18:
+            game_on = False
+            #Write Game Over
+            my_level.game_over()
 
     screen.update()
     time.sleep(0.01)
@@ -60,4 +66,4 @@ while game_on:
 
 
 
-screen.exitonclick()
+screen.mainloop()

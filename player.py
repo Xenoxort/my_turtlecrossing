@@ -13,7 +13,7 @@ class Player(Turtle):
 
 
     def up(self):
-        self.forward(20)
+        self.forward(15)
 
     def starting_position(self):
         self.goto(0, -(self.height / 2 - 20))

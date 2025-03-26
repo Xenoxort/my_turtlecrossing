@@ -10,6 +10,7 @@ class Cars:
         self.width = width
         self.height = height
         self.speed = 1
+        self.frequency = 25
 
 
     def create(self):
@@ -28,5 +29,6 @@ class Cars:
 
     def increase_speed(self):
         self.speed *= 1.2
+        self.frequency *= 0.9
 
 

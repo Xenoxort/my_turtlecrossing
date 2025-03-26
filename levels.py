@@ -6,7 +6,7 @@ FONT = ("Courier", 16, "bold")
 class Levels(Turtle):
     def __init__(self, width, height):
         super().__init__()
-        self.level = 0
+        self.level = 1
         self.hideturtle()
         self.penup()
         self.goto(-(width/2 - 70), (height/2 - 40))
@@ -20,6 +20,10 @@ class Levels(Turtle):
         self.level += 1
         self.clear()
         self.update_level()
+
+    def game_over(self):
+        self.goto(0, 0)
+        self.write("Game Over", align=ALIGNMENT, font=FONT)
 
 
 
