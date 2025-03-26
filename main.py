@@ -1,5 +1,6 @@
 from player import Player
 from turtle import Screen
+from levels import Levels
 
 screen = Screen()
 
@@ -10,11 +11,15 @@ width = 600
 screen.setup(height=height, width=width)
 screen.title("Turtle Crossing Game")
 
-#Setup player
 screen.tracer(0)
+#Setup player
 my_player = Player(height)
 
+#Setup level
+my_level = Levels(width, height)
+
 screen.update()
+
 
 #Turtle Movement
 screen.listen()
@@ -27,6 +32,9 @@ while game_on:
     # Completing the current level
     if my_player.ycor() > (height / 2 - 20):
         my_player.starting_position()
+
+        # Increase level
+        my_level.increase_level()
 
     screen.update()
 
